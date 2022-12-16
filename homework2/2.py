@@ -1,22 +1,14 @@
 # Сложность O(N)
-# В основном задача решалась по формулам из условия, так же присутствует четность и нечтность
-#(#если наш индекс четный мы целочисленно делим его на 2 и добавляем этот резкльтат в наш массив)
-# скорей всего, последующее число зависит от предыдущего (не уверена!)
+
+def getMaximumGenerated(n):
+    nums = [0] * (n + 1)
+    nums[1] = 1
+    for i in range(1, len(nums)):  # реализуем заполнение как представлено в задании
+        if 2 <= 2 * i <= n:
+            nums[2 * i] = nums[i]
+        if 2 <= 2 * i + 1 <= n:
+            nums[2 * i + 1] = nums[i] + nums[i + 1]
+    return max(nums)  # возвращаем максимальный элемент
 
 
-class Solution:
-    def getMaximumGenerated(n):
-        array = list() # массив
-        for i in range(n+1): # по 8 элемент
-            if i == 0: # по условию задачи
-                array.append(0) # добавляем в массив
-            elif i == 1: # по условию задачи
-                array.append(1) # добавляем в массив
-            elif i % 2 == 0: # ессли остаток равен 0
-                array.append(array[i // 2]) # если чет
-            else: # иначе
-                array.append(array[i // 2] + array[(i // 2) + 1]) # если нечет
-
-        return max(array)
-
-print(Solution.getMaximumGenerated(7))
+print(getMaximumGenerated(7))
