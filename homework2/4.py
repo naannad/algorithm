@@ -2,16 +2,14 @@
 # Объяснение в задаче очень подробное, поэтому задача понятна
 # Решается полность по условиям из задачи
 
-
-class Solution:
-    def maxProfit(prices):
-        counter = 0 # счетчик для общей прибыли
-
-        for i in range(1, len(prices)): #проходимся со второго элемента по всему списку
-            if prices[i] - prices[i - 1] > 0: # если разность чисел больше 0(если прибыль в плюс)
-                counter += (prices[i] - prices[i - 1]) # заносим в счетчик
-
-        return counter
+def maxProfit(prices):
+    maxProfit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            maxProfit += prices[i] - prices[i - 1]
+    return maxProfit
 
 
-print(Solution.maxProfit([1,2,3,4,5]))
+prices = [7, 1, 5, 3, 6, 4]
+
+print(maxProfit([7, 1, 5, 3, 6, 4]))
