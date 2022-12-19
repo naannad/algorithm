@@ -6,7 +6,7 @@
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
         def getDecimalValue(self, head: ListNode) -> int:
-        h_list = head #переменная равная тесткейсу
+        h_list = head 
         score = '' #вводим переменную куда будем записывать данные из списка в строке
         while h_list:
             score += str(h_list.val) #прибавляем каждый итый элемент строкой в переменную для записи
